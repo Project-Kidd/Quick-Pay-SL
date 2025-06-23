@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Quick Pay SL</title>
+  <script>
+  // Load balance from localStorage
+  let balance = parseInt(localStorage.getItem('balance')) || 0;
+
+  // Update balance display
+  function updateBalanceDisplay() {
+    document.querySelector('.balance-box p').textContent = 'Le ' + balance;
+  }
+
+  updateBalanceDisplay();
+
+  // Reward logic per task
+  const taskButtons = document.querySelectorAll('.task-item button');
+
+  taskButtons[0].addEventListener('click', () => {
+    balance += 10; // YouTube Task
+    localStorage.setItem('balance', balance);
+    updateBalanceDisplay();
+    alert('You earned Le 10!');
+  });
+
+  taskButtons[1].addEventListener('click', () => {
+    balance += 20; // Survey Task
+    localStorage.setItem('balance', balance);
+    updateBalanceDisplay();
+    alert('You earned Le 20!');
+  });
+</script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+      padding: 16px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #333;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .logout {
+      color: #28a745;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .balance-box {
+      background-color: #222;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .balance-box h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .balance-box p {
+      font-size: 2rem;
+      color: #28a745;
+      margin-top: 8px;
+    }
+    .tasks {
+      margin-top: 32px;
+    }
+    .task-item {
+      background-color: #1a1a1a;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+    }
+    .task-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+    .task-item p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .task-item button {
+      margin-top: 10px;
+      background-color: #28a745;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .withdraw-section {
+      margin-top: 32px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .withdraw-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+    .withdraw-section input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #333;
+      color: #fff;
+    }
+    .withdraw-section button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <script>
+  // Redirect if not logged in
+  if (localStorage.getItem('loggedIn') !== 'true') {
+    window.location.href = 'login.html';
+  }
+
+  // Handle logout
+  document.querySelector('.logout').addEventListener('click', function() {
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('userEmail');
+    window.location.href = 'login.html';
+  });
+
+  // Example: show user's balance (can be improved later with a backend)
+  const balanceElement = document.querySelector('.balance-box p');
+  let balance = localStorage.getItem('balance');
+  if (!balance) {
+    balance = 120;
+    localStorage.setItem('balance', balance);
+  }
+  balanceElement.textContent = 'Le ' + balance;
+
+  // Withdraw button
+  document.querySelector('.withdraw-section button').addEventListener('click', function () {
+    const number = document.querySelector('.withdraw-section input').value;
+    if (number) {
+      alert("Withdrawal request sent to " + number);
+    } else {
+      alert("Please enter your Afrimoney or Orange number.");
+    }
+  });
+</script>
+
+  <header>
+    <div class="logo">Quick Pay SL</div>
+    <button class="logout">Logout</button>
+  </header>
+
+  <div class="balance-box">
+    <h2>Your Balance</h2>
+    <p>Le 120</p>
+  </div>
+
+  <div class="tasks">
+    <div class="task-item">
+      <h3>Watch a YouTube Video</h3>
+      <p>Earn Le 10 for watching a full video.</p>
+      <button>Start Task</button>
+    </div>
+    <div class="task-item">
+      <h3>Complete a Survey</h3>
+      <p>Answer a few questions and earn Le 20.</p>
+      <button>Start Survey</button>
+    </div>
+  </div>
+
+  <div class="withdraw-section">
+    <h2>Withdraw Earnings</h2>
+    <input type="text" placeholder="Enter your Afrimoney/Orange number">
+    <button>Request Withdrawal</button>
+  </div>
+</body>
+</html>
