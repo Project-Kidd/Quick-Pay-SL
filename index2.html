@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Pay Sierra Leone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+      padding: 16px;
+      transition: background-color 0.3s ease;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .btn {
+      background-color: #28a745;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 12px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+    .hero {
+      text-align: center;
+      margin-top: 24px;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+    .section {
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeInUp 1.5s forwards;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards;
+    }
+    .live-feed {
+      background-color: #222;
+      padding: 10px;
+      margin-top: 16px;
+      border-radius: 6px;
+      animation: pulse 2s infinite;
+    }
+    .highlight {
+      color: #28a745;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes pulse {
+      0%, 100% {
+        background-color: #222;
+      }
+      50% {
+        background-color: #2a2a2a;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Quick Pay SL</div>
+    <div>
+         <a href="login.html"><button class="btn">Login</button></a>
+        <a href="signup.html"><button class="btn">Register</button></a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Earn Money Online in Sierra Leone!</h1>
+    <p>Complete tasks. Take surveys. Get paid with Afrimoney & Orange.</p>
+    <button class="btn">Get Started</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">HOW IT WORKS</div>
+    <div class="feature">✅ Sign Up – Free & fast</div>
+    <div class="feature">✅ Do Tasks – Like surveys, videos</div>
+    <div class="feature">✅ Withdraw – Instantly to your mobile money</div>
+  </div>
+
+  <div class="live-feed">
+    Fatmata earned <span class="highlight">Le 50</span>
+  </div>
+
+  <div class="section">
+    <div class="section-title">WHY JOIN QUICK PAY SL?</div>
+    <div class="feature">🇸🇱 Trusted by Sierra Leoneans</div>
+    <div class="feature">⚡ Fast Mobile Money Payments</div>
+    <div class="feature">🛡️ Secure & Anti-Cheat System</div>
+    <div class="feature">🎁 Daily Login Bonuses</div>
+  </div>
+</body>
+</html>
